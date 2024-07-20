@@ -57,9 +57,13 @@ app.get('/qp/subjects', async (req, res) => {
     return res.status(500).send('Internal server error');
   }
 });
-app.get('/', async (req, res) => {
-  return res.send('Yep, this api works.');
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+
+
 // Endpoint to search for exam papers based on paper_id, m_code, and subject_code
 app.get('/qp/search-papers', async (req, res) => {
   const { paperId, mCode, subjectCode } = req.query;
