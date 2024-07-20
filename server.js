@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const path = require('path');
+
 app.use(cors()); // for cross origin
 app.use(express.json()); //for res.json (if im not wrong)
 
